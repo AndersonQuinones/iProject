@@ -1,0 +1,11 @@
+.landPage {
+  display: flex;
+  justify-content: space-between;
+  background-image: url("/Users/andersonquinones/iProject/images/swoosh-bg.png");
+}
+hr {
+  background-color: lightskyblue;
+}
+h3 {
+  color: white;
+}
