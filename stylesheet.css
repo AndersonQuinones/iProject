@@ -2,10 +2,28 @@
   display: flex;
   justify-content: space-between;
   background-image: url("/Users/andersonquinones/iProject/images/swoosh-bg.png");
+  color: white;
 }
 hr {
   background-color: lightskyblue;
 }
-h3 {
+
+h1 {
+  text-align: center;
+}
+.item {
+  display: flex;
+  justify-content: space-evenly;
+}
+.info {
+  background-color: #4ce0b3;
   color: white;
+}
+button {
+  display: flex;
+  align-content: center;
+}
+.bottomSection {
+  display: flex;
+  justify-content: column;
 }
