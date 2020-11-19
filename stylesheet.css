@@ -13,17 +13,24 @@ section {
 }
 .bottom {
   padding: 25px;
+  padding-bottom: 0px;
   height: 100px;
   width: 200px;
 }
-button {
-  background-color: #00e5d1;
-  border-color: white;
-}
 .one {
-  width: 100%;
+  width: 75%;
   height: 50%;
 }
 footer {
   padding: 25px;
+}
+.resized {
+  padding: 10%;
+  width: 690px;
+  height: 690px;
+  overflow: hidden;
+}
+
+#first {
+  padding: 10%;
 }
