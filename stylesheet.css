@@ -30,7 +30,18 @@ footer {
   height: 690px;
   overflow: hidden;
 }
+.questions {
+  color: white;
+}
 
 #first {
   padding: 10%;
+}
+.btn.btn-outline-light {
+  border-radius: 20px;
+}
+@media only screen and (max-width: 600px) {
+  .resized {
+    visibility: hidden;
+  }
 }
