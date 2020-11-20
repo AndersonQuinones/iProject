@@ -50,6 +50,12 @@
   padding: 2%;
 }
 
+/* Posts section */
+
+.hidden-by-default {
+  display: none;
+}
+
 /* Questions section */
 
 #questions-section {
