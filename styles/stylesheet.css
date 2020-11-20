@@ -1,0 +1,77 @@
+/* Welcome banner */
+
+#welcome-banner {
+  display: flex;
+  justify-content: space-between;
+  background-image: url("../images/swoosh-bg.png");
+  background-repeat: no-repeat;
+}
+
+.welcome-banner-logo-img {
+  width: 75%;
+}
+
+.welcome-banner-text {
+  padding: 24%;
+  color: white;
+}
+
+.welcome-banner-iphone-img-container {
+  padding: 24% 20% 0% 20%;
+}
+
+/* Hide the iPhone screenshot on mobile devices */
+
+@media only screen and (max-width: 900px) {
+  .welcome-banner-text {
+    padding: 12%;
+  }
+
+  .welcome-banner-iphone-img-container {
+    display: none;
+  }
+}
+
+/* Perk sections */
+
+#perk-title {
+  padding: 2% 0% 2% 0%;
+}
+
+.perk-tile {
+  padding: 2%;
+}
+
+.perk-img {
+  padding: 2%;
+}
+
+.perk-title {
+  padding: 2%;
+}
+
+.perk-description {
+  padding: 2%;
+}
+
+/* Questions section */
+
+#questions-section {
+  padding: 80px 0px 80px 0px;
+  background-color: #00e5d1;
+}
+.questions-section-text {
+  color: white;
+  font-weight: bold;
+}
+
+.questions-button {
+  border-radius: 20px !important;
+}
+
+/* Copyright section */
+
+#copyright-img {
+  padding: 16px;
+  width: 200px;
+}
