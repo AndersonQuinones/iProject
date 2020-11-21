@@ -52,95 +52,12 @@
       <div class="row">
         <div class="col-12 text-center">
           <h1>The latest from our blog</h1>
-          <p>Check out some of our posts</p>
         </div>
       </div>
 
-      <!-- NOTE: If we were using a framework like React, we wold create the placeholders dynamically via .map()  -->
+      <!-- Posts section -->
 
-      <div id="posts-row" class="row">
-        <!-- Post Tile 1 -->
-        <div class="col-md-3 col-sm-12 text-center">
-          <div class="post-tile">
-            <img src="images/icon1.png" class="post-tile-img" />
-            <h3 class="post-tile-title"></h3>
-            <p class="post-description"></p>
-          </div>
-        </div>
-
-        <!-- Post Tile 2 -->
-
-        <div class="col-md-3 col-sm-12 text-center">
-          <div class="post-tile">
-            <img src="images/icon2.png" class="post-tile-img" />
-            <h3 class="post-tile-title"></h3>
-            <p class="post-description"></p>
-          </div>
-        </div>
-
-        <!-- Post Tile 3 -->
-
-        <div class="col-md-3 col-sm-12 text-center">
-          <div class="perk-tile">
-            <img src="images/icon3.png" class="perk-tile-img" />
-            <h3 class="post-tile-title"></h3>
-            <p class="post-description"></p>
-          </div>
-        </div>
-
-        <!-- Post Tile 4 -->
-
-        <div class="col-md-3 col-sm-12 text-center">
-          <div class="post-tile">
-            <img src="images/icon4.png" class="post-tile-img" />
-            <h3 class="post-tile-title"></h3>
-            <p class="post-description"></p>
-          </div>
-        </div>
-      </div>
-
-      <div id="more-posts-row" class="row invisible">
-        <!-- Post Tile 1 -->
-        <div class="col-md-3 col-sm-12 text-center">
-          <div class="post-tile">
-            <img src="images/icon1.png" class="post-tile-img" />
-            <h3 class="post-tile-title"></h3>
-            <p class="post-description"></p>
-          </div>
-        </div>
-
-        <!-- Post Tile 2 -->
-
-        <div class="col-md-3 col-sm-12 text-center">
-          <div class="post-tile">
-            <img src="images/icon2.png" class="post-tile-img" />
-            <h3 class="post-tile-title"></h3>
-            <p class="post-description"></p>
-          </div>
-        </div>
-
-        <!-- Post Tile 3 -->
-
-        <div class="col-md-3 col-sm-12 text-center">
-          <div class="perk-tile">
-            <img src="images/icon3.png" class="perk-tile-img" />
-            <h3 class="post-tile-title"></h3>
-            <p class="post-description"></p>
-          </div>
-        </div>
-
-        <!-- Post Tile 4 -->
-
-        <div class="col-md-3 col-sm-12 text-center">
-          <div class="post-tile">
-            <img src="images/icon4.png" class="post-tile-img" />
-            <h3 class="post-tile-title"></h3>
-            <p class="post-description"></p>
-          </div>
-        </div>
-      </div>
-
-      <!-- More posts section -->
+      <div id="posts-row" class="row invisible"></div>
 
       <!-- Show more posts button section -->
 
@@ -149,7 +66,7 @@
           <button
             id="more-post-button"
             class="btn btn-outline-light"
-            onclick="showMorePosts();"
+            onclick="showPosts();"
           >
             See more posts
           </button>

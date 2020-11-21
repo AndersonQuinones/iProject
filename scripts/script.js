@@ -1,67 +1,97 @@
 // Utility functions
 
-function loadPosts(config = { additional: false }) {
-  const API_BASE_URL = "https://jsonplaceholder.typicode.com";
-  const API_POST_URL = `${API_BASE_URL}/posts`;
+const API_BASE_URL = "https://jsonplaceholder.typicode.com";
 
-  return fetch(API_POST_URL)
+let postStartIndex = 0;
+
+function loadPhotos(posts) {
+  // Execute each fetch fequest concurrently (not in sequence)
+  const promises = posts.map((post) => {
+    return (
+      fetch(`${API_BASE_URL}/photos/${post.id}`)
+        // 1. Download the image data
+        .then((response) => {
+          if (response.ok) {
+            return response.json();
+          } else {
+            throw new Error("Failed to fetch image data");
+          }
+        })
+
+        // 2. Add image URL to the corresponding post
+        .then((photo) => {
+          return {
+            title: post.title,
+            body: post.body,
+            imgUrl: photo.thumbnailUrl,
+          };
+        })
+
+        // 3. Recover from error by injecting a placeholder image
+        .catch((error) => {
+          console.error(error);
+
+          return Promise.resolve({
+            title: post.title,
+            body: post.body,
+            imgUrl: "images/post-placeholder.png",
+          });
+        })
+    );
+  });
+
+  // Convert to a single promise that contains an array of all of the values
+  return Promise.all(promises);
+}
+
+function loadPosts() {
+  return fetch(`${API_BASE_URL}/posts`)
     .then((response) => response.json())
     .then((json) => {
       // Toggle between (0, 3) and (4, 7) subarray of posts
-      const start = config.additional ? 4 : 0;
-      const end = config.additional ? 8 : 4;
+      const posts = json.slice(postStartIndex, postStartIndex + 4);
 
-      return json.slice(start, end);
+      postStartIndex += 4;
+
+      return posts;
     })
+    .then(loadPhotos)
     .catch((error) => console.error(error));
 }
 
-function populatePostTiles(id, posts) {
-  const row = document.getElementById(id); // Find the rowt hat contains the posts placeholders
-  const children = Array.from(row.children); // Convert HTMLCollection into standarda rray
+function populatePostTiles(posts) {
+  const row = document.getElementById("posts-row");
 
-  // Create a pairing between the child elements and the posts
-  let pairs = children.map((child, index) => {
-    const title = child.getElementsByTagName("h3")[0];
-    const body = child.getElementsByTagName("p")[0];
+  posts.forEach((post) => {
+    const column = document.createElement("div");
+    const image = document.createElement("img");
+    const heading = document.createElement("h6");
+    const body = document.createElement("p");
 
-    return {
-      title: title,
-      body: body,
-      post: posts[index],
-    };
+    column.setAttribute("class", "col-md-3 col-sm-12 text-center");
+    image.src = post.imgUrl;
+    heading.textContent = post.title;
+    body.textContent = post.body;
+
+    column.appendChild(image);
+    column.appendChild(heading);
+    column.appendChild(body);
+
+    row.appendChild(column);
   });
-
-  // Loop through the pairs and set the content of each HTML element
-  for (pair of pairs) {
-    pair.title.textContent = pair.post.title;
-    pair.body.textContent = pair.post.body;
-  }
 
   row.setAttribute("class", "row visible");
 }
 
-function showPosts() {
-  loadPosts()
-    .then((posts) => populatePostTiles("posts-row", posts))
-    .catch(handlePopulatePostsFailure);
-}
-
 function handlePopulatePostsFailure(error) {
-  alert(error); // TODO: Add user-friendly message, log error for dev / debugging purposes
+  console.error(error);
+  alert("Oops, something went wrong. We are sorry for the inconvience!");
 }
 
-async function showMorePosts() {
-  try {
-    const posts = await loadPosts({ additional: true });
-    populatePostTiles("more-posts-row", posts);
-  } catch (error) {
-    handlePopulatePostsFailure(error);
-  }
+function showPosts() {
+  loadPosts().then(populatePostTiles).catch(handlePopulatePostsFailure);
 }
 
 // Startup logic
 
-window.addEventListener("load", (event) => {
-  showPosts();
-});
+window.addEventListener("load", showPosts);
