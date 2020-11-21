@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta name="author" content="SitePoint" />
+    <meta name="author" content="Anderson" />
 
     <title>Ibotta Project</title>
 
@@ -18,7 +18,7 @@
 
     <!-- Custom CSS -->
 
-    <link rel="stylesheet" href="styles/stylesheet.css" />
+    <link rel="stylesheet" href="styles/styles.css" />
   </head>
 
   <body>
@@ -57,7 +57,7 @@
 
       <!-- Posts section -->
 
-      <div id="posts-row" class="row invisible"></div>
+      <div id="posts-row" class="row"></div>
 
       <!-- Show more posts button section -->
 
@@ -101,6 +101,12 @@
 
     <!-- Scripts -->
 
-    <script type="text/javascript" src="scripts/script.js"></script>
+    <script type="text/javascript" src="scripts/utility.js"></script>
+
+    <script>
+      // Startup logic
+
+      window.addEventListener("load", showPosts);
+    </script>
   </body>
 </html>

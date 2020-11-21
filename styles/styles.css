@@ -1,3 +1,10 @@
+/* Element-specific CSS selectors */
+
+h1 {
+  padding: 2%;
+  font-weight: bold;
+}
+
 /* Welcome banner */
 
 #welcome-banner {
@@ -50,14 +57,6 @@
   padding: 2%;
 }
 
-.visible {
-  visibility: visible;
-}
-
-.invisible {
-  visibility: hidden;
-}
-
 /* Questions section */
 
 #questions-section {
@@ -66,7 +65,6 @@
 }
 .questions-section-text {
   color: white;
-  font-weight: bold;
 }
 
 .questions-button {

@@ -1,8 +1,10 @@
-// Utility functions
+// Global state / constants
 
 const API_BASE_URL = "https://jsonplaceholder.typicode.com";
 
 let postStartIndex = 0;
+
+// Utility functions
 
 function loadPhotos(posts) {
   // Execute each fetch fequest concurrently (not in sequence)
@@ -11,6 +13,7 @@ function loadPhotos(posts) {
       fetch(`${API_BASE_URL}/photos/${post.id}`)
         // 1. Download the image data
         .then((response) => {
+          // Status code is 200
           if (response.ok) {
             return response.json();
           } else {
@@ -48,14 +51,12 @@ function loadPosts() {
   return fetch(`${API_BASE_URL}/posts`)
     .then((response) => response.json())
     .then((json) => {
-      // Toggle between (0, 3) and (4, 7) subarray of posts
       const posts = json.slice(postStartIndex, postStartIndex + 4);
 
       postStartIndex += 4;
 
       return posts;
     })
-    .then(loadPhotos)
     .catch((error) => console.error(error));
 }
 
@@ -68,7 +69,11 @@ function populatePostTiles(posts) {
     const heading = document.createElement("h6");
     const body = document.createElement("p");
 
-    column.setAttribute("class", "col-md-3 col-sm-12 text-center");
+    column.setAttribute("class", "col-md-3 col-sm-12 text-center post-tile");
+    heading.setAttribute("class", "post-tile-title");
+    image.setAttribute("class", "post-tile-img");
+    body.setAttribute("class", "post-description");
+
     image.src = post.imgUrl;
     heading.textContent = post.title;
     body.textContent = post.body;
@@ -79,8 +84,6 @@ function populatePostTiles(posts) {
 
     row.appendChild(column);
   });
-
-  row.setAttribute("class", "row visible");
 }
 
 function handlePopulatePostsFailure(error) {
@@ -89,9 +92,8 @@ function handlePopulatePostsFailure(error) {
 }
 
 function showPosts() {
-  loadPosts().then(populatePostTiles).catch(handlePopulatePostsFailure);
+  loadPosts()
+    .then(loadPhotos)
+    .then(populatePostTiles)
+    .catch(handlePopulatePostsFailure);
 }
-
-// Startup logic
-
-window.addEventListener("load", showPosts);
