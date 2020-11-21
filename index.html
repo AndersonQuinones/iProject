@@ -16,7 +16,7 @@
       crossorigin="anonymous"
     />
 
-    <!-- Cusotm CSS -->
+    <!-- Custom CSS -->
 
     <link rel="stylesheet" href="styles/stylesheet.css" />
   </head>
@@ -25,12 +25,12 @@
     <div class="container-fluid">
       <!-- Welcome banner -->
 
-      <div class="row" id="welcome-banner">
+      <div id="welcome-banner" class="row">
         <div class="col-md-6 col-sm-12">
           <div class="welcome-banner-text">
             <img
-              src="images/start-saving-with-ibotta.png"
               class="welcome-banner-logo-img"
+              src="images/start-saving-with-ibotta.png"
             />
             <hr />
             <h3>
@@ -42,79 +42,12 @@
 
         <div class="col-md-6 col-sm-12">
           <div class="welcome-banner-iphone-img-container">
-            <img src="images/iphone-image.png" id="welcome-banner-iphone-img" />
+            <img id="welcome-banner-iphone-img" src="images/iphone-image.png" />
           </div>
         </div>
       </div>
 
-      <!-- Perks Section -->
-
-      <div class="row">
-        <div class="col-12 text-center">
-          <h1>Earn on everything</h1>
-        </div>
-      </div>
-
-      <!--  Perk Tile 1: Earnings -->
-
-      <div class="row">
-        <div class="col-md-3 col-sm-12 text-center">
-          <div class="perk-tile">
-            <img src="images/icon1.png" class="perk-tile-img" />
-            <h3 class="perk-tile-title">Earn on items you already buy</h3>
-            <p class="perk-description">
-              Ibotta has offers for thousands of products that you can buy at
-              your local grocery store, Walmart, Target, and many other
-              retailers.
-            </p>
-          </div>
-        </div>
-
-        <!-- Perk Tile 2: Discover -->
-
-        <div class="col-md-3 col-sm-12 text-center">
-          <div class="perk-tile">
-            <img src="images/icon2.png" class="perk-tile-img" />
-            <h3 class="perk-tile-title">Discover new products and retailers</h3>
-            <p class="perk-description">
-              We’re constantly adding new offers and retailers across many
-              categories such as Travel, Apparel, Grocery, and many more to help
-              you find new ways to save.
-            </p>
-          </div>
-        </div>
-
-        <!-- Perk Tile 3: Real Cash -->
-
-        <div class="col-md-3 col-sm-12 text-center">
-          <div class="perk-tile">
-            <img src="images/icon3.png" class="perk-tile-img" />
-            <h3 class="perk-tile-title">
-              No points or credits -- just real cash
-            </h3>
-            <p class="perk-description">
-              You’ll earn cash back on your purchases. Withdraw your savings to
-              Venmo, PayPal, or gifts cards.
-            </p>
-          </div>
-        </div>
-
-        <!-- Perk Tile 4: With Friends -->
-
-        <div class="col-md-3 col-sm-12 text-center">
-          <div class="perk-tile">
-            <img src="images/icon4.png" class="perk-tile-img" />
-            <h3 class="perk-tile-title">Cash back gets better with friends</h3>
-            <p class="perk-description">
-              You’ll earn cash back for referring your friends to use Ibotta.
-              Just send them your referral code from the app and show them how
-              to save!
-            </p>
-          </div>
-        </div>
-      </div>
-
-      <!-- Posts section -->
+      <!-- Posts heading section -->
 
       <div class="row">
         <div class="col-12 text-center">
@@ -123,23 +56,118 @@
         </div>
       </div>
 
-      <div class="row hidden-by-default" id="posts"></div>
+      <!-- NOTE: If we were using a framework like React, we wold create the placeholders dynamically via .map()  -->
 
-      <div class="row hidden-by-default" id="more-posts"></div>
+      <div id="posts-row" class="row">
+        <!-- Post Tile 1 -->
+        <div class="col-md-3 col-sm-12 text-center">
+          <div class="post-tile">
+            <img src="images/icon1.png" class="post-tile-img" />
+            <h3 class="post-tile-title"></h3>
+            <p class="post-description"></p>
+          </div>
+        </div>
 
-      <div class="text-center">
-        <button type="button" class="btn btn-outline-light more-post-button">
-          See more posts
-        </button>
+        <!-- Post Tile 2 -->
+
+        <div class="col-md-3 col-sm-12 text-center">
+          <div class="post-tile">
+            <img src="images/icon2.png" class="post-tile-img" />
+            <h3 class="post-tile-title"></h3>
+            <p class="post-description"></p>
+          </div>
+        </div>
+
+        <!-- Post Tile 3 -->
+
+        <div class="col-md-3 col-sm-12 text-center">
+          <div class="perk-tile">
+            <img src="images/icon3.png" class="perk-tile-img" />
+            <h3 class="post-tile-title"></h3>
+            <p class="post-description"></p>
+          </div>
+        </div>
+
+        <!-- Post Tile 4 -->
+
+        <div class="col-md-3 col-sm-12 text-center">
+          <div class="post-tile">
+            <img src="images/icon4.png" class="post-tile-img" />
+            <h3 class="post-tile-title"></h3>
+            <p class="post-description"></p>
+          </div>
+        </div>
+      </div>
+
+      <div id="more-posts-row" class="row invisible">
+        <!-- Post Tile 1 -->
+        <div class="col-md-3 col-sm-12 text-center">
+          <div class="post-tile">
+            <img src="images/icon1.png" class="post-tile-img" />
+            <h3 class="post-tile-title"></h3>
+            <p class="post-description"></p>
+          </div>
+        </div>
+
+        <!-- Post Tile 2 -->
+
+        <div class="col-md-3 col-sm-12 text-center">
+          <div class="post-tile">
+            <img src="images/icon2.png" class="post-tile-img" />
+            <h3 class="post-tile-title"></h3>
+            <p class="post-description"></p>
+          </div>
+        </div>
+
+        <!-- Post Tile 3 -->
+
+        <div class="col-md-3 col-sm-12 text-center">
+          <div class="perk-tile">
+            <img src="images/icon3.png" class="perk-tile-img" />
+            <h3 class="post-tile-title"></h3>
+            <p class="post-description"></p>
+          </div>
+        </div>
+
+        <!-- Post Tile 4 -->
+
+        <div class="col-md-3 col-sm-12 text-center">
+          <div class="post-tile">
+            <img src="images/icon4.png" class="post-tile-img" />
+            <h3 class="post-tile-title"></h3>
+            <p class="post-description"></p>
+          </div>
+        </div>
+      </div>
+
+      <!-- More posts section -->
+
+      <!-- Show more posts button section -->
+
+      <div class="row">
+        <div class="col-12 text-center">
+          <button
+            id="more-post-button"
+            class="btn btn-outline-light"
+            onclick="showMorePosts();"
+          >
+            See more posts
+          </button>
+        </div>
       </div>
 
       <!-- Questions section -->
 
-      <div class="row" id="questions-section">
+      <div id="questions-section" class="row">
         <div class="col-12 text-center">
-          <h1 class="questions-section-text">Have more Questions?</h1>
-          <button type="button" class="btn btn-outline-light questions-button">
-            Visit our Help center
+          <h1 class="questions-section-text">Have more questions?</h1>
+          <button class="btn btn-outline-light questions-button">
+            <a
+              href="https://help.ibotta.com/hc/en-us"
+              class="unstyled-link"
+              target="_blank"
+              >VISIT OUR HELP CENTER</a
+            >
           </button>
         </div>
       </div>
@@ -148,7 +176,7 @@
 
       <div class="row text-center">
         <div class="col-12">
-          <img src="images/IbottaLogo_Primary_Pink.png" id="copyright-img" />
+          <img id="copyright-img" src="images/IbottaLogo_Primary_Pink.png" />
           <p>© 2020 Ibotta, Inc. All rights reserved.</p>
         </div>
       </div>

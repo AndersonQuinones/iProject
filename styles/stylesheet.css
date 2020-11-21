@@ -22,7 +22,7 @@
 
 /* Hide the iPhone screenshot on mobile devices */
 
-@media only screen and (max-width: 900px) {
+@media only screen and (max-width: 800px) {
   .welcome-banner-text {
     padding: 12%;
   }
@@ -32,28 +32,30 @@
   }
 }
 
-/* Perk sections */
+/* Post section */
 
-.perk-tile {
+.post-tile {
   padding: 2%;
 }
 
-.perk-tile-title {
+.post-tile-title {
   padding: 2%;
 }
 
-.perk-tile-img {
+.post-tile-img {
   padding: 2%;
 }
 
-.perk-description {
+.post-description {
   padding: 2%;
 }
 
-/* Posts section */
+.visible {
+  visibility: visible;
+}
 
-.hidden-by-default {
-  display: none;
+.invisible {
+  visibility: hidden;
 }
 
 /* Questions section */
@@ -71,9 +73,20 @@
   border-radius: 20px;
 }
 
+.unstyled-link {
+  text-decoration: none;
+  color: inherit;
+}
+
+.unstyled-link:hover {
+  text-decoration: none;
+  color: inherit;
+}
+
 /* Post */
 
-.more-post-button {
+#more-post-button {
+  margin: 2%;
   border-radius: 20px;
   background-color: #ec476f;
 }
