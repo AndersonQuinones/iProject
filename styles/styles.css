@@ -23,10 +23,6 @@ h1 {
   color: white;
 }
 
-.welcome-banner-iphone-img-container {
-  padding: 24% 20% 0% 20%;
-}
-
 /* Hide the iPhone screenshot on mobile devices */
 
 @media only screen and (max-width: 800px) {
